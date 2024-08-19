@@ -8,22 +8,19 @@
 import Foundation
 
 /// Represents detailed information about a selected meal.
-struct MealDetail: Codable, Identifiable {
+struct MealDetails: Codable, Identifiable {
     /// The unique identifier for the meal.
     let idMeal: String
     
     /// The name of the meal.
-    let strMeal: String
+    let strMeal: String?
     
     /// Instructions for preparing the meal.
     let strInstructions: String?
     
     /// A URL string pointing to an image of the meal.
     let strMealThumb: String?
-    
-    /// Source URL where the meal recipe can be found.
-    let strSource: String?
-    
+        
     // List of ingredients used in the meal. Each ingredient is optional and corresponds to an index from 1 to 20.
     let strIngredient1: String?
     let strIngredient2: String?
@@ -107,7 +104,7 @@ struct MealDetail: Codable, Identifiable {
 }
 
 /// Response model for a meal detail API request.
-struct MealDetailResponse: Codable {
+struct MealDetailsResponse: Codable {
     /// Array of meal details returned from the API.
-    let meals: [MealDetail]
+    let meals: [MealDetails]
 }

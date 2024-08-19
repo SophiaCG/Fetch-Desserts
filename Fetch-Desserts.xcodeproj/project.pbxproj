@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EEAD68B82C72DAC7004B6868 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAD68B72C72DAC7004B6868 /* AsyncImageView.swift */; };
 		EEB98E882C6F9AD600FEE4E1 /* Fetch_DessertsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB98E872C6F9AD600FEE4E1 /* Fetch_DessertsApp.swift */; };
 		EEB98E8A2C6F9AD600FEE4E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB98E892C6F9AD600FEE4E1 /* ContentView.swift */; };
 		EEB98E8C2C6F9AD800FEE4E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB98E8B2C6F9AD800FEE4E1 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EEAD68B72C72DAC7004B6868 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		EEB98E842C6F9AD600FEE4E1 /* Fetch-Desserts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fetch-Desserts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB98E872C6F9AD600FEE4E1 /* Fetch_DessertsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch_DessertsApp.swift; sourceTree = "<group>"; };
 		EEB98E892C6F9AD600FEE4E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				EEB98E892C6F9AD600FEE4E1 /* ContentView.swift */,
 				EEB98EBA2C6FEA8500FEE4E1 /* MealDetailView.swift */,
+				EEAD68B72C72DAC7004B6868 /* AsyncImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				EEB98E882C6F9AD600FEE4E1 /* Fetch_DessertsApp.swift in Sources */,
 				EEB98EB92C6FEA2700FEE4E1 /* MealsViewModel.swift in Sources */,
 				EEB98EB72C6FE9F900FEE4E1 /* MealDetailsModel.swift in Sources */,
+				EEAD68B82C72DAC7004B6868 /* AsyncImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

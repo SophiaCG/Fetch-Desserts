@@ -32,24 +32,19 @@ struct MealDetailView: View {
             // Display the meal details if loading is complete and no errors occurred
             else if let meal = viewModel.mealDetail {
                 ScrollView {
-                    VStack(alignment: .leading) {                        
+                    VStack(alignment: .leading) {
                         // Display the meal name
-                        Text(meal.strMeal)
+                        Text(meal.strMeal ?? "")
                             .font(.largeTitle)
                             .bold()
                             .padding(.top)
 
-                        // Display the meal thumbnail image asynchronously
-                        AsyncImage(url: URL(string: meal.strMealThumb ?? "")) { image in
-                            image.resizable()
-                                .scaledToFill()
-                                .frame(maxWidth: .infinity, maxHeight: 250, alignment: .center)
-                                .clipped()
-                                .cornerRadius(5)
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .frame(height: 250)
+                        // Custom ImageView that fetches the image using async/await
+                        AsyncImageView(urlString: meal.strMealThumb ?? "")
+                            .frame(maxWidth: .infinity, maxHeight: 250, alignment: .center)
+                            .clipped()
+                            .cornerRadius(5)
+                            .frame(height: 250)
                                                                         
                         // Display the section title for instructions
                         Text("Instructions")
@@ -61,18 +56,22 @@ struct MealDetailView: View {
                         Text(meal.strInstructions ?? "No instructions available.")
                             .padding(.bottom)
                                                 
-                        // Display the section title for ingredients
+                        // Display the section title for ingredients, or a default message if not available
                         Text("Ingredients")
                             .font(.title2)
                             .bold()
                             .padding(.top)
                         
                         // Display each ingredient and its measure
-                        ForEach(meal.ingredientMeasurePairs, id: \.ingredient) { pair in
-                            HStack {
-                                Text("\(pair.ingredient):")
-                                    .bold()
-                                Text(pair.measure)
+                        if meal.ingredientMeasurePairs.isEmpty {
+                            Text("No ingredients available.")
+                        } else {
+                            ForEach(meal.ingredientMeasurePairs, id: \.ingredient) { pair in
+                                HStack {
+                                    Text("\(pair.ingredient):")
+                                        .bold()
+                                    Text(pair.measure)
+                                }
                             }
                         }
                     }

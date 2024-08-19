@@ -24,25 +24,19 @@ struct ContentView: View {
                     Text(errorMessage)
                         .foregroundColor(.red)
                 }
-                // Display the list of meals if loading is complete and no errors occurred
+                // Display the list of meals alphabetically if loading is complete and no errors occurred
                 else {
-                    List(viewModel.meals.sorted(by: { $0.strMeal < $1.strMeal })) { meal in
+                    List(viewModel.meals.sorted(by: { ($0.strMeal ?? "") < ($1.strMeal ?? "") })) { meal in
                         NavigationLink(destination: MealDetailView(mealID: meal.idMeal, viewModel: viewModel)) {
                             HStack {
-                                // Load and display the meal thumbnail image asynchronously
-                                AsyncImage(url: URL(string: meal.strMealThumb)) { image in
-                                    image.resizable()
-                                        .scaledToFill()
-                                        .frame(width: 125, height: 100)
-                                        .clipped()
-                                        .cornerRadius(5)
-                                } placeholder: {
-                                    // Display a progress view while the image is loading
-                                    ProgressView()
-                                }
+                                // Custom ImageView that fetches the image using async/await
+                                AsyncImageView(urlString: meal.strMealThumb ?? "")
+                                    .frame(width: 125, height: 100)
+                                    .clipped()
+                                    .cornerRadius(5)
                                 
                                 // Display the meal name
-                                Text(meal.strMeal)
+                                Text(meal.strMeal ?? "")
                                     .font(.headline)
                                     .padding(.leading, 10)
                             }
@@ -60,7 +54,3 @@ struct ContentView: View {
         }
     }
 }
-
-//#Preview {
-//    ContentView()
-//}

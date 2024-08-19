@@ -22,7 +22,7 @@ class MealViewModel: ObservableObject {
     @Published var mealListErrorMessage: String? = nil
     
     /// Details of a specific meal.
-    @Published var mealDetail: MealDetail?
+    @Published var mealDetail: MealDetails?
     
     /// Boolean indicating whether meal detail data is currently being loaded.
     @Published var isLoadingMealDetail: Bool = false
@@ -72,7 +72,7 @@ class MealViewModel: ObservableObject {
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            let mealDetailResponse = try JSONDecoder().decode(MealDetailResponse.self, from: data)
+            let mealDetailResponse = try JSONDecoder().decode(MealDetailsResponse.self, from: data)
             mealDetail = mealDetailResponse.meals.first
         } catch {
             mealDetailErrorMessage = "Failed to fetch meal detail: \(error.localizedDescription)"

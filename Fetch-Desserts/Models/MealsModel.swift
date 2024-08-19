@@ -13,10 +13,10 @@ struct Meals: Identifiable, Codable {
     let idMeal: String
     
     /// The name of the meal.
-    let strMeal: String
+    let strMeal: String?
     
     /// A URL string pointing to an image of the meal.
-    let strMealThumb: String
+    let strMealThumb: String?
     
     /// The unique identifier required by the `Identifiable` protocol.
     var id: String { idMeal }
